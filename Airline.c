@@ -1,10 +1,54 @@
-\*Airline project*\
+/*Airline ticket reservation
+    Emily Soto 
+    Madeline Salguero
+*/
+ 
+//librerias
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+ 
+//macros
 
-#include <stdio.h>
+//Prototipo de funciones
+void clearscreen(){
+    system("@cls||clear");
+}
 
-int main(void) {
-  printf("perdi pues!\n");
-  printf("probando ando\n");
-  printf("Hola Edmundo\n");
-  return 0;
+//Variables globales
+ char vuelo[5];
+ int length;
+ int seleccion;
+
+//menu
+int main(void){
+    menu_entrada:
+        clearscreen();
+        printf("Ingrese el numero de vuelo:\n");
+        scanf("%s", vuelo);
+        length = strlen (vuelo) ;
+
+        if (length!=5){
+          goto menu_entrada;
+        }
+
+      if(length==5){
+        goto menu_principal;
+    menu_principal:
+    clearscreen();
+    printf("\nBienvenido vuelo %s\n", vuelo);
+    printf("========================================================");
+    printf("\n¿Que desea realizar?\n\n 1: Para reservar asiento \n 2: Para ver disponibilidad de asientos \n 3: Para salir \n");
+    printf("========================================================");
+    printf("\n Ingrese su seleccion:  ");
+    scanf("%d",&seleccion);
+    
+
+    if(seleccion==3){
+        clearscreen();
+        exit(0);
+    }
+
+
+    }
 }
