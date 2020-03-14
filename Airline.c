@@ -1,7 +1,10 @@
+\*Airline project*\
+
 #include <stdio.h>
 
 int main(void) {
   printf("perdi pues!\n");
-  printf("No hicimos nada\n");
+  printf("probando ando\n");
+  printf("Hola Edmundo\n");
   return 0;
 }
