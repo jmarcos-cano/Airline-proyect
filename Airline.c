@@ -35,11 +35,19 @@ int main(void){
       if(length==5){
         goto menu_principal;
     menu_principal:
-    clearscreen();
-    printf("\nBienvenido vuelo %s\n", vuelo);
-    printf("========================================================");
+    clearscreen();                                            
+                                             
+    printf("                              _|_\n");                                            
+    printf("                             |___| \n");                                          
+    printf("                            |_____| \n ");                                          
+    printf("                          |oo   oo| \n ");                                         
+ printf("|_________________________|       |__________________________| \n");             
+  printf("  `---------|------|--------|_____|--------|------|---------' \n");              
+  printf("           ( )    ( )     |OOo|oOO|O     ( )    ( ) \n");   
+    printf("\n                  Bienvenido vuelo: %s\n", vuelo);
+    printf("===========================================================");
     printf("\n¿Que desea realizar?\n\n 1: Para reservar asiento \n 2: Para ver disponibilidad de asientos \n 3: Para salir \n");
-    printf("========================================================");
+    printf("===========================================================");
     printf("\n Ingrese su seleccion:  ");
     scanf("%d",&seleccion);
     
