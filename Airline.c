@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 int main(void) {
-  printf("vamonos pues!\n");
+  printf("perdi pues!\n");
+  printf("No hicimos nada\n");
   return 0;
 }
