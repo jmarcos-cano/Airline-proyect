@@ -19,9 +19,10 @@ void clearscreen(){
 
 //Variables globales
  char vuelo[5];
+ char asiento[3];
  int length;
  int seleccion;
-
+ int  matrix[rows][cols]={{0,0,0,0,0,0}};
 //funciones propuestas
 
 
@@ -62,16 +63,32 @@ int main(void){
         clearscreen();
         exit(0);
     }
+
+    if(seleccion==1){
+      clearscreen();
+    printf("\n                 Reserva de asientos vuelo: %s\n", vuelo);
+    printf("  *Los asientos están numerados con letras (A-F) y números (1-32)\n");
+    printf("\nIngrese el asiento que desea reservar:\n"); 
+    scanf("%s", asiento);
+
+    }
+
   if (seleccion==2){
     clearscreen();
-        printf("Disponibilidad de asientos\n\n");
+        printf("      Disponibilidad de asientos\n\n");
 
  int contador=0;
  int contad_filas=1;
+ matrix[22][3]=1;
   printf("\n\n     | A || B || C || D || E || F |\n");
     printf(" ----------------------------------\n");
-    int  matrix[rows][cols];
-    for (int i = 0 ;i < rows ; i++ ){
+    for(int i =0 ;i <  rows; i++){
+        for (int j=0; j< cols ;j++){
+            printf("| %i |", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    /*for (int i = 0 ;i < rows ; i++ ){
       if (contad_filas<10){
        printf("| %i  |",contad_filas);
       }
@@ -86,11 +103,9 @@ int main(void){
         }
         contad_filas=contad_filas+1;
         printf("\n");
-    }    
+    }*/    
 
   }
 
     }
 }
-
-
