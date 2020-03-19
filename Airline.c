@@ -9,7 +9,7 @@
 #include<string.h>
  
 //macros
-#define rows 32
+#define rows 20
 #define cols 6
 
 //Prototipo de funciones
@@ -21,6 +21,10 @@ void clearscreen(){
  char vuelo[5];
  int length;
  int seleccion;
+
+//funciones propuestas
+
+
 
 //menu
 int main(void){
@@ -58,7 +62,35 @@ int main(void){
         clearscreen();
         exit(0);
     }
+  if (seleccion==2){
+    clearscreen();
+        printf("Disponibilidad de asientos\n\n");
 
+ int contador=0;
+ int contad_filas=1;
+  printf("\n\n     | A || B || C || D || E || F |\n");
+    printf(" ----------------------------------\n");
+    int  matrix[rows][cols];
+    for (int i = 0 ;i < rows ; i++ ){
+      if (contad_filas<10){
+       printf("| %i  |",contad_filas);
+      }
+      else if (contad_filas>=10){
+       printf("| %i |",contad_filas);
+
+      }
+        for (int j=0; j < cols ; j++){
+            matrix[i][j]=contador;
+            printf("| %i |",matrix[i][j]);
+            contador= contador ;
+        }
+        contad_filas=contad_filas+1;
+        printf("\n");
+    }    
+
+  }
 
     }
 }
+
+
