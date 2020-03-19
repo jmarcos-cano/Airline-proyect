@@ -9,6 +9,8 @@
 #include<string.h>
  
 //macros
+#define rows 32
+#define cols 6
 
 //Prototipo de funciones
 void clearscreen(){
@@ -46,13 +48,13 @@ int main(void){
   printf("           ( )    ( )     |OOo|oOO|O     ( )    ( ) \n");   
     printf("\n                  Bienvenido vuelo: %s\n", vuelo);
     printf("===========================================================");
-    printf("\n¿Que desea realizar?\n\n 1: Para reservar asiento \n 2: Para ver disponibilidad de asientos \n 3: Para salir \n");
+    printf("\n¿Que desea realizar?\n\n 1: Para reservar asiento \n 2: Para ver disponibilidad de asientos \n 3: Para ver resumen\n 4: Para salir \n");
     printf("===========================================================");
     printf("\n Ingrese su seleccion:  ");
     scanf("%d",&seleccion);
     
 
-    if(seleccion==3){
+    if(seleccion==4){
         clearscreen();
         exit(0);
     }
