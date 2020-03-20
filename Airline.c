@@ -128,14 +128,21 @@ int main(void){
 
  int contador=0;
  int contad_filas=1;
+  printf("\033[01;33m");
   printf("\n\n      | A || B || C || D || E || F |\n");
-    printf(" ----------------------------------\n");
+    printf("------------------------------------\n");    printf("\033[0m");    
+
     for(int i =0 ;i <  rows; i++){
        if (contad_filas<10){
+      printf("\033[01;33m");
        printf("| %i  |",contad_filas);
+       printf("\033[0m");    
+
       }
       else if (contad_filas>=10){
+              printf("\033[01;33m");
        printf("| %i |",contad_filas);
+              printf("\033[0m");    
       }
         for (int j=0; j< cols ;j++){
             printf("| %i |", matrix[i][j]);
