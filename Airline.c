@@ -174,7 +174,7 @@ int main(void){
       }
    }
    float disponibles = (rows*cols) - ocupados;
-   printf("Resumen de asientos\n\n");
+   printf("\n        Resumen de disponibilidad de asientos\n\n");
    printf("\nReservados: %.0f/%d [%.2f %%]", ocupados,(rows*cols),((ocupados/(rows*cols))*100));
    printf("\nDisponibles: %.0f/%d [%.2f %%]", disponibles,(rows*cols),((disponibles/(rows*cols))*100));
 
