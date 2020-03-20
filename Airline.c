@@ -23,8 +23,47 @@ void clearscreen(){
  int length;
  int seleccion;
  int  matrix[rows][cols]={{0,0,0,0,0,0}};
-//funciones propuestas
+int numcol;
+int numrow;
 
+//funciones propuestas
+int seatscol(char numero[3]){
+if (numero[0]== 'a'){
+  numcol=0;}
+  if (numero[0]== 'b'){
+  numcol=1;}
+   if (numero[0]== 'c'){
+  numcol=2;}
+   if (numero[0]== 'd'){
+  numcol=3;}
+   if (numero[0]== 'e'){
+  numcol=4;}
+   if (numero[0]== 'f'){
+  numcol=5;}
+  return 0;
+}
+
+int seatsrow(char numero[3]){
+  int numrow1;
+  int numrow2;
+  char primer=numero[1]; 
+  char segundo=numero[2]; 
+if (strlen(numero)<3){
+   if ((primer >= '0') && (primer <= '9')){ 
+numrow= ((primer- '0')-1); 
+}
+}
+if (strlen(numero)>=3){
+   if ((primer >= '0') && (primer <= '9')){ 
+numrow1= ((primer- '0'))*10; 
+}
+ if ((segundo >= '0') && (segundo <= '9')){ 
+numrow2= ((segundo- '0')-1); 
+}
+numrow=numrow1+numrow2;
+}
+	return 0;
+}
 
 
 //menu
@@ -70,7 +109,11 @@ int main(void){
     printf("  *Los asientos están numerados con letras (A-F) y números (1-32)\n");
     printf("\nIngrese el asiento que desea reservar:\n"); 
     scanf("%s", asiento);
-
+    seatscol(asiento);
+    seatsrow(asiento);
+    if ((numrow<=rows)&&(numcol<=cols)){
+    matrix[numrow][numcol]=1;
+    }
     }
 
   if (seleccion==2){
@@ -79,7 +122,6 @@ int main(void){
 
  int contador=0;
  int contad_filas=1;
- matrix[22][3]=1;
   printf("\n\n     | A || B || C || D || E || F |\n");
     printf(" ----------------------------------\n");
     for(int i =0 ;i <  rows; i++){
@@ -108,4 +150,10 @@ int main(void){
   }
 
     }
+ printf("\nPara regresar al menu principal seleccione 'ENTER'\n");
+ char noimporta[3];
+ fgets(noimporta, 3, stdin);
+ fgets(noimporta, 3, stdin);
+ clearscreen();
+ goto menu_principal;
 }
