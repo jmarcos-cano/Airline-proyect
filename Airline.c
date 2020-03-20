@@ -112,7 +112,13 @@ int main(void){
     seatscol(asiento);
     seatsrow(asiento);
     if ((numrow<=rows)&&(numcol<=cols)){
-    matrix[numrow][numcol]=1;
+      if (matrix[numrow][numcol]==0){
+          matrix[numrow][numcol]=1;
+          printf("\nAsiento '%s' reservado exitosamente\n", asiento);
+      }
+      else if (matrix[numrow][numcol]==1){
+        printf("\nAsiento '%s' ya esta reservado\n", asiento);
+    }
     }
     }
 
