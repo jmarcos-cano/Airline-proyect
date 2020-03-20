@@ -1,3 +1,4 @@
+
 /*Airline ticket reservation
     Emily Soto 
     Madeline Salguero
@@ -167,12 +168,19 @@ int main(void){
   if (seleccion==3){
     clearscreen();
     int ocupados=0;
+    int asientos = rows*cols;
     for (int m = 0; m < rows; m++) {
       for (int z = 0; z < cols; z++) {
          ocupados = ocupados + matrix[m][z];
       }
    }
-   printf("\nLos asientos ocupado son : %d", ocupados);
+   int disponibles = asientos - ocupados;
+   float disp = disponibles/asientos*100;
+   float ocup = ocupados/asientos*100;
+   printf("Resumen de asientos\n\n");
+   printf("\nReservados: %d/%d [%f%%]", ocupados,asientos,ocup);
+   printf("\nDisponibles: %d/%d[%f%%]", disponibles,asientos,disp);
+
   }
 
     }
