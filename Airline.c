@@ -7,6 +7,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<math.h>
  
 //macros
 #define rows 20
@@ -118,6 +119,17 @@ int main(void){
       }
       else if (matrix[numrow][numcol]==1){
         printf("\nAsiento '%s' ya esta reservado\n", asiento);
+      
+      //Puntos extra sugerir lugar
+      /*while(matrix[numrow][numcol]==1){
+      int contador_sug=0
+      for(int c =0; c<rows; c++ ){
+        for(int e=0; e<cols; e++){
+      
+        }
+      }
+      }
+      */
     }
     }
     }
@@ -144,13 +156,23 @@ int main(void){
        printf("| %i |",contad_filas);
               printf("\033[0m");    
       }
-        for (int j=0; j< cols ;j++){
-            printf("| %i |", matrix[i][j]);
+        for (int y=0; y< cols ;y++){
+            printf("| %i |", matrix[i][y]);
         }
         contad_filas=contad_filas+1;
         printf("\n");
     }
 
+  }
+  if (seleccion==3){
+    clearscreen();
+    int ocupados=0;
+    for (int m = 0; m < rows; m++) {
+      for (int z = 0; z < cols; z++) {
+         ocupados = ocupados + matrix[m][z];
+      }
+   }
+   printf("\nLos asientos ocupado son : %d", ocupados);
   }
 
     }
