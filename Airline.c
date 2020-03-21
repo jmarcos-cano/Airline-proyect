@@ -10,7 +10,7 @@
 #include<math.h>
  
 //macros
-#define rows 20
+#define rows 32
 #define cols 6
 
 //Prototipo de funciones
@@ -110,7 +110,9 @@ int main(void){
       if(length==5){
         goto menu_principal;
     menu_principal:
-    clearscreen();                                            
+    clearscreen();                                     
+      printf("\033[01;36m");
+ 
                                              
     printf("                              _|_\n");                                            
     printf("                             |___| \n");                                          
@@ -118,11 +120,17 @@ int main(void){
     printf("                          |oo   oo| \n ");                                         
  printf("|_________________________|       |__________________________| \n");             
   printf("  `---------|------|--------|_____|--------|------|---------' \n");              
-  printf("           ( )    ( )     |OOo|oOO|O     ( )    ( ) \n");   
+  printf("           ( )    ( )     |OOo|oOO|O     ( )    ( ) \n"); 
+  printf("\033[0m");      
     printf("\n                  Bienvenido vuelo: %s\n", vuelo);
+   printf("\033[01;31m");
+
     printf("===========================================================");
+      printf("\033[0m");      
     printf("\n¿Que desea realizar?\n\n 1: Para reservar asiento \n 2: Para ver disponibilidad de asientos \n 3: Para ver resumen\n 4: Para salir \n");
-    printf("===========================================================");
+        printf("\033[01;31m");
+    printf("===========================================================");  
+     printf("\033[0m");      
     printf("\n Ingrese su seleccion:  ");
     scanf("%d",&seleccion);
     
@@ -133,8 +141,12 @@ int main(void){
     }
 
     if(seleccion==1){
-      clearscreen();
+      clearscreen();  
+      printf("\033[01;36m");
+
     printf("\n                 Reserva de asientos vuelo: %s\n", vuelo);
+         printf("\033[0m");      
+
     printf("  *Los asientos están numerados con letras (A-F) y números (1-32)\n");
     printf("\nIngrese el asiento que desea reservar:\n"); 
     scanf("%s", asiento);
@@ -176,8 +188,9 @@ int main(void){
 
   if (seleccion==2){
     clearscreen();
-        printf("      Disponibilidad de asientos\n\n");
-
+          printf("\033[01;36m");
+   printf("      Disponibilidad de asientos\n\n");
+ printf("\033[0m");   
  int contador=0;
  int contad_filas=1;
   printf("\033[01;33m");
@@ -212,15 +225,20 @@ int main(void){
          ocupados = ocupados + matrix[m][z];
       }
    }
-   float disponibles = (rows*cols) - ocupados;
+   float disponibles = (rows*cols) - ocupados;           printf("\033[01;36m");
+
    printf("\n        Resumen de disponibilidad de asientos\n\n");
+    printf("\033[0m"); 
    printf("\nReservados: %.0f/%d [%.2f %%]", ocupados,(rows*cols),((ocupados/(rows*cols))*100));
    printf("\nDisponibles: %.0f/%d [%.2f %%]", disponibles,(rows*cols),((disponibles/(rows*cols))*100));
 
   }
 
     }
+ printf("\033[01;31m");
+
  printf("\nPara regresar al menu principal seleccione 'ENTER'\n");
+ printf("\033[0m");    
  char noimporta[3];
  fgets(noimporta, 3, stdin);
  fgets(noimporta, 3, stdin);
