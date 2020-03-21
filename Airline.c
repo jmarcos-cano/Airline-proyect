@@ -1,4 +1,3 @@
-
 /*Airline ticket reservation
     Emily Soto 
     Madeline Salguero
@@ -27,6 +26,8 @@ void clearscreen(){
  int  matrix[rows][cols]={{0,0,0,0,0,0}};
 int numcol;
 int numrow;
+char letracol;
+char rowchar[2];
 
 //funciones propuestas
 int seatscol(char numero[3]){
@@ -65,6 +66,32 @@ numrow2= ((segundo- '0')-1);
 numrow=numrow1+numrow2;
 }
 	return 0;
+}
+
+
+char numtocol(int numcol){
+  if (numcol== 0){
+  letracol='A';}
+  if (numcol== 1){
+  letracol='B';}
+  if (numcol== 2){
+  letracol='C';}
+  if (numcol== 3){
+  letracol='D';}
+  if (numcol== 4){
+  letracol='E';}
+  if (numcol== 5){
+  letracol='F';}
+  return 0;
+}
+char numtorow(int numrow){
+  numrow=numrow+1;
+sprintf(rowchar, "%d", numrow);
+}
+
+char sugerido(char letracol, char rowchar[2]){
+strcat(&letracol, rowchar);
+printf("\n    Asiento sugerido: %s\n", &letracol);
 }
 
 
@@ -111,6 +138,7 @@ int main(void){
     printf("  *Los asientos están numerados con letras (A-F) y números (1-32)\n");
     printf("\nIngrese el asiento que desea reservar:\n"); 
     scanf("%s", asiento);
+    if (strlen(asiento)<=3){
     seatscol(asiento);
     seatsrow(asiento);
     if ((numrow<=rows)&&(numcol<=cols)){
@@ -120,7 +148,11 @@ int main(void){
       }
       else if (matrix[numrow][numcol]==1){
         printf("\nAsiento '%s' ya esta reservado\n", asiento);
-      
+       //Esto es para imprimir la sugerencia
+       //Iria dentro del while 
+        numtocol(numcol);
+        numtorow(numrow);
+        sugerido(letracol, rowchar);
       //Puntos extra sugerir lugar
       /*while(matrix[numrow][numcol]==1){
       int contador_sug=0
@@ -132,6 +164,13 @@ int main(void){
       }
       */
     }
+    }
+    else{
+    printf("\n***Numeracion de asiento invalido\n");
+    }
+    }
+    else {
+      printf("\n***Numeracion de asiento invalido\n");
     }
     }
 
