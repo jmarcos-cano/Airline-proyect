@@ -13,6 +13,9 @@
 #define rows 32
 #define cols 6
 
+//definiciones
+char nuevoasig[3] = "";
+
 //Prototipo de funciones
 void clearscreen(){
     system("@cls||clear");
@@ -86,14 +89,33 @@ char numtocol(int numcol){
 }
 char numtorow(int numrow){
   numrow=numrow+1;
-sprintf(rowchar, "%d", numrow);
-}
+sprintf(rowchar, "%d", numrow);}
 
 char sugerido(char letracol, char rowchar[2]){
 strcat(&letracol, rowchar);
 printf("\n    Asiento sugerido: %s\n", &letracol);
 }
-
+int sugerencia( int f, int let){
+    char numeros[2];
+    sprintf(numeros, "%d", f);
+    char letra[2];
+    if(let == 0)
+    {letra[0] = 'A';}
+    if(let == 1)
+    { letra[0] = 'B';}
+    if(let == 2)
+    {letra[0] = 'C';}
+    if(let== 3)
+    {letra[0] = 'D';}
+    if(let== 4)
+    { letra[0] = 'E';}
+    if(let== 5)
+    { letra[0] = 'F';}
+    strcat(nuevoasig, letra);
+    strcat(nuevoasig, numeros);
+    printf("Le sugerimos el asiento '%s'", nuevoasig);
+return 0;
+}
 
 //menu
 int main(void){
@@ -160,27 +182,24 @@ int main(void){
       }
       else if (matrix[numrow][numcol]==1){
         printf("\nAsiento '%s' ya esta reservado\n", asiento);
-       //Esto es para imprimir la sugerencia
-       //Iria dentro del while 
-       while(matrix[numrow][numcol]==1){
-         int contador_cols=0;
-         int contador_rows=1;
-         for(int c =0; c<rows; c++ ){
-        for(int e=0; e<cols; e++){
-          contador_cols = contador_cols + 1;
-        /*numtocol(numcol);
-        numtorow(numrow);
-        sugerido(letracol, rowchar);
-      */
+       int contador_cols=0;
+       int contador_rows=0;
+       int contador_sugerido=0;
+         for(int r=0; r<rows; r++ ){
+        for(int o =0; o<cols; o++){ 
+          if(matrix[r][o]==0){
+            contador_sugerido=1;
+            contador_rows=r+1;
+            contador_cols=o;
+            break;
+          }
         }
-        contador_rows= contador_rows + 1;
+        if(contador_sugerido==1){
+          break;
+        }
          }
-         char sug= numtocol(contador_cols);
-         int sugr= numtorow(contador_rows);
-         printf("El asiento sugerido es : %d", contador_rows );
-        break;
-       }
-       
+         sugerencia(contador_rows,contador_cols);
+              
       //Puntos extra sugerir lugar
       /*while(matrix[numrow][numcol]==1){
       int contador_sug=0
