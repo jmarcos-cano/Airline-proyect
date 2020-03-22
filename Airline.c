@@ -162,9 +162,25 @@ int main(void){
         printf("\nAsiento '%s' ya esta reservado\n", asiento);
        //Esto es para imprimir la sugerencia
        //Iria dentro del while 
-        numtocol(numcol);
+       while(matrix[numrow][numcol]==1){
+         int contador_cols=0;
+         int contador_rows=1;
+         for(int c =0; c<rows; c++ ){
+        for(int e=0; e<cols; e++){
+          contador_cols = contador_cols + 1;
+        /*numtocol(numcol);
         numtorow(numrow);
         sugerido(letracol, rowchar);
+      */
+        }
+        contador_rows= contador_rows + 1;
+         }
+         char sug= numtocol(contador_cols);
+         int sugr= numtorow(contador_rows);
+         printf("El asiento sugerido es : %d", contador_rows );
+        break;
+       }
+       
       //Puntos extra sugerir lugar
       /*while(matrix[numrow][numcol]==1){
       int contador_sug=0
