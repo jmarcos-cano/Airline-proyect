@@ -70,31 +70,6 @@ numrow=numrow1+numrow2;
 }
 	return 0;
 }
-
-
-char numtocol(int numcol){
-  if (numcol== 0){
-  letracol='A';}
-  if (numcol== 1){
-  letracol='B';}
-  if (numcol== 2){
-  letracol='C';}
-  if (numcol== 3){
-  letracol='D';}
-  if (numcol== 4){
-  letracol='E';}
-  if (numcol== 5){
-  letracol='F';}
-  return 0;
-}
-char numtorow(int numrow){
-  numrow=numrow+1;
-sprintf(rowchar, "%d", numrow);}
-
-char sugerido(char letracol, char rowchar[2]){
-strcat(&letracol, rowchar);
-printf("\n    Asiento sugerido: %s\n", &letracol);
-}
 int sugerencia( int f, int let){
     char numeros[2];
     sprintf(numeros, "%d", f);
