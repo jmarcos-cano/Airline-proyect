@@ -23,7 +23,7 @@ void clearscreen(){
 
 //Variables globales
  char vuelo[5];
- char asiento[3];
+ char asiento[4];
  int length;
  int seleccion;
  int  matrix[rows][cols]={{0,0,0,0,0,0}};
@@ -88,7 +88,7 @@ int sugerencia( int f, int let){
     { letra[0] = 'F';}
     strcat(nuevoasig, letra);
     strcat(nuevoasig, numeros);
-    printf("Le sugerimos el asiento '%s'", nuevoasig);
+    printf("\n*Le sugerimos el asiento '%s'\n Presione '0' para asignarlo\n", nuevoasig);
 return 0;
 }
 
@@ -138,6 +138,7 @@ int main(void){
     }
 
     if(seleccion==1){
+      asignar:
       clearscreen();  
       printf("\033[01;36m");
 
@@ -147,6 +148,9 @@ int main(void){
     printf("  *Los asientos están numerados con letras (A-F) y números (1-32)\n");
     printf("\nIngrese el asiento que desea reservar:\n"); 
     scanf("%s", asiento);
+      if (strcmp(asiento,"menu")==0){
+       goto menu_principal;
+      }
     if (strlen(asiento)<=3){
     seatscol(asiento);
     seatsrow(asiento);
@@ -174,7 +178,14 @@ int main(void){
         }
          }
          sugerencia(contador_rows,contador_cols);
-              
+         scanf("%s", asiento);
+        if (strcmp(asiento,"menu")==0){
+          goto menu_principal;
+      }
+         if (*asiento=='0'){
+            goto asignar;
+         }
+  
       //Puntos extra sugerir lugar
       /*while(matrix[numrow][numcol]==1){
       int contador_sug=0
@@ -191,6 +202,7 @@ int main(void){
     printf("\n***Numeracion de asiento invalido\n");
     }
     }
+
     else {
       printf("\n***Numeracion de asiento invalido\n");
     }
